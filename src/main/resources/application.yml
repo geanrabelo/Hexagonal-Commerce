@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: HexagonalCommerce
+  datasource:
+    url: jdbc:postgresql://localhost:5432/commerce
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      show-sql: true
+server:
+  port: 8080
