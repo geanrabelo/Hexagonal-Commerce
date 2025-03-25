@@ -21,7 +21,6 @@ public class OrderUseCasesImpl implements OrderUseCases {
 
     private final OrderMapper orderMapper;
 
-
     public OrderUseCasesImpl(OrderRepository orderRepository, UserMapper userMapper, OrderMapper orderMapper){
         this.orderRepository = orderRepository;
         this.userMapper = userMapper;
@@ -31,9 +30,8 @@ public class OrderUseCasesImpl implements OrderUseCases {
     public UUID create(UserEntity userEntity) {
         var user = userMapper.toUserWithId(userEntity);
         var order = new Order(user);
-        orderRepository.save(order);
-
-        return orderRepository.getReferenceById(order.getUuid()).getUuid();
+        var savedOrder = orderRepository.save(order);
+        return savedOrder.getUuid();
     }
 
     @Override

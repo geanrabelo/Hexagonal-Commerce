@@ -31,6 +31,7 @@ public class UserUseCasesImpl implements UserUseCases {
         }
     }
 
+
     @Override
     public boolean existsById(Long id) throws UserNotFound {
         if(!userRepository.existsById(id)){
